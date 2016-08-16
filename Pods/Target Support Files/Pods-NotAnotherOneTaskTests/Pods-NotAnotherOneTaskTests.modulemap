@@ -1,0 +1,6 @@
+framework module Pods_NotAnotherOneTaskTests {
+  umbrella header "Pods-NotAnotherOneTaskTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
