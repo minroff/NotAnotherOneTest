@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class DetailViewController: UIViewController, CLLocationManagerDelegate {
+class DetailViewController: UIViewController, CLLocationManagerDelegate, NSURLSessionDataDelegate, NSURLSessionDelegate {
     
     @IBOutlet weak var bandImage: UIImageView!
     @IBOutlet var mapView: GMSMapView!
@@ -19,6 +19,8 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var mapViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet var mapViewTopConstraint: NSLayoutConstraint!
+    
+    var urlSession = NSURLSession()
     
     var event = Event()
     var imageURL = String()
@@ -31,6 +33,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.urlSession = NSURLSession.init(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: NSOperationQueue.mainQueue())
         setupViewOrientation()
         self.configureView()
     }
@@ -107,7 +110,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
             return
         }
         let request = NSMutableURLRequest(URL:endpoint)
-        NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+        urlSession.dataTaskWithRequest(request) { (data, response, error) in
             do {
                 guard let data = data else {
                     throw JSONError.NoData
@@ -134,6 +137,13 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
                 print(error.debugDescription)
             }
             }.resume()
+    }
+    
+    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
+        print("Did receive data!")
+    }
+    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveResponse response: NSURLResponse, completionHandler: (NSURLSessionResponseDisposition) -> Void) {
+        print("Response!!")
     }
     
     
