@@ -9,11 +9,10 @@
 import UIKit
 
 class Event: NSObject {
-
+    
     var datetime = NSDate()
     var name = String()
     var latitude = Float()
     var longitude = Float()
     var mbid = String()
-    
 }

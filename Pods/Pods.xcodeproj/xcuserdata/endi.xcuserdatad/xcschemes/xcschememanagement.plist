@@ -4,16 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>EGOCache.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>EGOImageLoading.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-NotAnotherOneTask.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +22,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5BF00A3CD6C2A7B0F56DF2D31F75951B</key>
+		<key>431E749F64896CEF5B4CECCE5F2AF95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,17 +32,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A2CAE3179D6A93CE39FFC34940D76A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A5B49F8A1848D9A3B23B565B56857F26</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C2B33F026F3AC3C0D431F36F0114B3A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

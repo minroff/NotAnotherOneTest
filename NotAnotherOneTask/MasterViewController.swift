@@ -19,27 +19,24 @@ extension NSLayoutConstraint {
 }
 
 class MasterViewController: UITableViewController, CLLocationManagerDelegate {
-
+    
+    @IBOutlet var tableOfEvents: UITableView!
+    
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+
     var eventsArray : [Event] = []
     var activity = UIActivityIndicatorView()
     
+    let locationManager = CLLocationManager()
     var locationString = String()
     
-    let locationManager = CLLocationManager()
-    
-    var flag = true
-
-    @IBOutlet var tableOfEvents: UITableView!
+    var flagForDoubleUpdating = true
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadingSetUp()
-        
-        
+        loadingSettings()
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
@@ -47,7 +44,7 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate {
         }
     }
     
-    func loadingSetUp() {
+    func loadingSettings() {
         activity.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         activity.center = self.view.center
         activity.hidesWhenStopped = true
@@ -75,12 +72,6 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
     }
 
-    func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
-
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -89,16 +80,8 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate {
                 let object = eventsArray[indexPath.row]
                 let controller = segue.destinationViewController as! DetailViewController
                 controller.event = object
-//                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-//                controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
-    }
-    
-//    if let destination = segue.destinationViewController as? SecondViewController
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
 
     // MARK: - Table View
@@ -124,17 +107,7 @@ class MasterViewController: UITableViewController, CLLocationManagerDelegate {
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
-    }
-
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
     }
     
     
@@ -245,9 +218,9 @@ extension MasterViewController {
         
         self.locationManager.stopUpdatingLocation()
         
-        if self.flag {
+        if self.flagForDoubleUpdating {
             jsonParser(locationString, radius: 13)
-            self.flag = false
+            self.flagForDoubleUpdating = false
         }
     }
 }

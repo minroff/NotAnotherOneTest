@@ -33,22 +33,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vGN-ZL-RaD">
-                                <rect key="frame" x="20" y="28" width="560" height="203"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="268"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ima-qT-qRx" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="239" width="600" height="361"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="288" width="600" height="312"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vGN-ZL-RaD" secondAttribute="trailing" constant="20" id="0CN-2F-7ek"/>
-                            <constraint firstItem="vGN-ZL-RaD" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="3bs-eW-w18"/>
-                            <constraint firstItem="vGN-ZL-RaD" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" id="74p-uN-UO4"/>
+                            <constraint firstAttribute="trailing" secondItem="vGN-ZL-RaD" secondAttribute="trailing" id="0CN-2F-7ek"/>
+                            <constraint firstItem="vGN-ZL-RaD" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="3bs-eW-w18"/>
+                            <constraint firstItem="vGN-ZL-RaD" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="74p-uN-UO4"/>
                             <constraint firstItem="ima-qT-qRx" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="7tP-m4-OY4"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="ima-qT-qRx" secondAttribute="bottom" id="VMh-7E-OgF"/>
-                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="vGN-ZL-RaD" secondAttribute="bottom" constant="369" id="brM-qB-QeV"/>
-                            <constraint firstItem="ima-qT-qRx" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="219" id="dZ6-Yc-H1A"/>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="vGN-ZL-RaD" secondAttribute="bottom" constant="312" id="brM-qB-QeV"/>
+                            <constraint firstItem="ima-qT-qRx" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="268" id="dZ6-Yc-H1A"/>
                             <constraint firstAttribute="trailing" secondItem="ima-qT-qRx" secondAttribute="trailing" id="o3p-7m-sda"/>
                         </constraints>
                     </view>
@@ -56,7 +56,11 @@
                     <navigationItem key="navigationItem" title="Event" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="bandImage" destination="vGN-ZL-RaD" id="W86-ZR-383"/>
+                        <outlet property="bandImageViewBottomConstraint" destination="brM-qB-QeV" id="jfa-BS-uAi"/>
+                        <outlet property="bandImageViewTrailingConstraint" destination="0CN-2F-7ek" id="91V-58-SSB"/>
                         <outlet property="mapView" destination="ima-qT-qRx" id="ImS-0H-SuG"/>
+                        <outlet property="mapViewLeadingConstraint" destination="7tP-m4-OY4" id="6PY-Q2-PyL"/>
+                        <outlet property="mapViewTopConstraint" destination="dZ6-Yc-H1A" id="i7p-3t-DnG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
