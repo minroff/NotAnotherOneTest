@@ -9,7 +9,25 @@
 import UIKit
 import GoogleMaps
 
-class DetailViewController: UIViewController, CLLocationManagerDelegate, NSURLSessionDataDelegate, NSURLSessionDelegate {
+extension UIImageView {
+    public func imageFromServerURL(urlString: String) {
+        
+        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: urlString)!, completionHandler: { (data, response, error) -> Void in
+            
+            if error != nil {
+                print(error)
+                return
+            }
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                let image = UIImage(data: data!)
+                self.image = image
+                
+            })
+            
+        }).resume()
+    }}
+
+class CurrentEventViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var bandImage: UIImageView!
     @IBOutlet var mapView: GMSMapView!
@@ -20,8 +38,6 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, NSURLSe
     @IBOutlet var mapViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet var mapViewTopConstraint: NSLayoutConstraint!
     
-    var urlSession = NSURLSession()
-    
     var event = Event()
     var imageURL = String()
     
@@ -30,21 +46,19 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, NSURLSe
             
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.urlSession = NSURLSession.init(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: NSOperationQueue.mainQueue())
         setupViewOrientation()
         self.configureView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func configureView() {
-        let str = event.name.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
-        jsonParser(str!)
+        parserCall()
         
         let camera: GMSCameraPosition = GMSCameraPosition.cameraWithLatitude(CLLocationDegrees(event.latitude), longitude: CLLocationDegrees(event.longitude), zoom: 15)
         let  position = CLLocationCoordinate2DMake(CLLocationDegrees(event.latitude), CLLocationDegrees(event.longitude))
@@ -59,7 +73,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, NSURLSe
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         let padding: CGFloat = 0.0
         
-        let viewHeight = self.view.frame.size.width - self.navigationController!.navigationBar.frame.size.height*2
+        let viewHeight = self.view.frame.size.width - self.navigationController!.navigationBar.frame.size.height
         let viewWidth = self.view.frame.size.height
         
         landscapePortraitSwitch(toInterfaceOrientation, padding: padding, viewWidth: viewWidth, viewHeight: viewHeight)
@@ -70,7 +84,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, NSURLSe
         
         let padding: CGFloat = 0.0
         
-        let viewHeight = self.view.frame.size.height - self.navigationController!.navigationBar.frame.size.height*2
+        let viewHeight = self.view.frame.size.height - self.navigationController!.navigationBar.frame.size.height
         let viewWidth = self.view.frame.size.width
         
         landscapePortraitSwitch(interfaceOrientation, padding: padding, viewWidth: viewWidth, viewHeight: viewHeight)
@@ -94,56 +108,13 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, NSURLSe
         }
     }
     
-    
-    
-    //MARK: - JSON Parse
-    
-    enum JSONError: String, ErrorType {
-        case NoData = "ERROR: no data"
-        case ConversionFailed = "ERROR: conversion from JSON failed"
-    }
-    
-    func jsonParser(name: String) {
-        let urlPath: String = String(format: "http://api.bandsintown.com/artists/%@.json?api_version=2.0&app_id=NotAnotherOneTest",name)
-        guard let endpoint = NSURL(string: urlPath) else {
-            print("Error creating endpoint")
-            return
-        }
-        let request = NSMutableURLRequest(URL:endpoint)
-        urlSession.dataTaskWithRequest(request) { (data, response, error) in
-            do {
-                guard let data = data else {
-                    throw JSONError.NoData
-                }
-                guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary else {
-                    throw JSONError.ConversionFailed
-                }
-                
-                if let kek = json.objectForKey("image_url"){
-                    self.imageURL = kek as! String
-                }
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    if let url = NSURL(string: self.imageURL) {
-                        if let data = NSData(contentsOfURL: url) {
-                            self.bandImage.image = UIImage(data: data)
-                        }
-                    }
-                }
-                
-            } catch let error as JSONError {
-                print(error.rawValue)
-            } catch let error as NSError {
-                print(error.debugDescription)
-            }
-            }.resume()
-    }
-    
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
-        print("Did receive data!")
-    }
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveResponse response: NSURLResponse, completionHandler: (NSURLSessionResponseDisposition) -> Void) {
-        print("Response!!")
+    func parserCall() {
+        let parser = Parser()
+        let str = event.name.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        parser.jsonParser(str!, completionBlock: { (imageURL) -> Void in
+            self.imageURL = imageURL
+            self.bandImage.imageFromServerURL(self.imageURL)
+        })
     }
     
     

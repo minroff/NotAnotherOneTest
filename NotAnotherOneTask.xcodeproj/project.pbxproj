@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		14491481CB61E33898F4BB00 /* Pods_NotAnotherOneTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618E0A4C495B651C1C8C8420 /* Pods_NotAnotherOneTaskUITests.framework */; };
 		AD76F05E1D5D004C001A3449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F05D1D5D004C001A3449 /* AppDelegate.swift */; };
-		AD76F0601D5D004C001A3449 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F05F1D5D004C001A3449 /* MasterViewController.swift */; };
-		AD76F0621D5D004C001A3449 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F0611D5D004C001A3449 /* DetailViewController.swift */; };
+		AD76F0601D5D004C001A3449 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F05F1D5D004C001A3449 /* EventsViewController.swift */; };
+		AD76F0621D5D004C001A3449 /* CurrentEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F0611D5D004C001A3449 /* CurrentEventViewController.swift */; };
 		AD76F0651D5D004C001A3449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD76F0631D5D004C001A3449 /* Main.storyboard */; };
 		AD76F0671D5D004C001A3449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD76F0661D5D004C001A3449 /* Assets.xcassets */; };
 		AD76F06A1D5D004C001A3449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD76F0681D5D004C001A3449 /* LaunchScreen.storyboard */; };
 		AD76F0751D5D004C001A3449 /* NotAnotherOneTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F0741D5D004C001A3449 /* NotAnotherOneTaskTests.swift */; };
 		AD76F0801D5D004C001A3449 /* NotAnotherOneTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F07F1D5D004C001A3449 /* NotAnotherOneTaskUITests.swift */; };
 		ADD965241D5E6999000B3602 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD965231D5E6999000B3602 /* EventCell.swift */; };
+		ADDDFBD31D672183003C3B5B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDFBD21D672183003C3B5B /* Parser.swift */; };
 		ADE7472D1D5E3E5C00C1734B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7472C1D5E3E5C00C1734B /* Event.swift */; };
 		ADF9DA101D61F631000879C3 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = ADF9DA0F1D61F631000879C3 /* music.png */; };
 		AF6E9639EAC62224D2BAB460 /* Pods_NotAnotherOneTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B730B8D481F73C9EBBD539 /* Pods_NotAnotherOneTask.framework */; };
@@ -49,8 +50,8 @@
 		A39BCD9C284687AE0789B394 /* Pods-NotAnotherOneTaskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotAnotherOneTaskUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotAnotherOneTaskUITests/Pods-NotAnotherOneTaskUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD76F05A1D5D004C001A3449 /* NotAnotherOneTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotAnotherOneTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD76F05D1D5D004C001A3449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AD76F05F1D5D004C001A3449 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		AD76F0611D5D004C001A3449 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AD76F05F1D5D004C001A3449 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		AD76F0611D5D004C001A3449 /* CurrentEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentEventViewController.swift; sourceTree = "<group>"; };
 		AD76F0641D5D004C001A3449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD76F0661D5D004C001A3449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD76F0691D5D004C001A3449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		AD76F0811D5D004C001A3449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADC78D131D623FCE00055C83 /* NotAnotherOneTask-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotAnotherOneTask-Bridging-Header.h"; sourceTree = "<group>"; };
 		ADD965231D5E6999000B3602 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		ADDDFBD21D672183003C3B5B /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		ADE7472C1D5E3E5C00C1734B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		ADF9DA0F1D61F631000879C3 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
 		D3A7732475B7B2473F26C645 /* Pods_NotAnotherOneTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherOneTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				ADD965201D5E5566000B3602 /* Controllers */,
 				ADD9651F1D5E5556000B3602 /* Models */,
 				ADD965221D5E5600000B3602 /* Views */,
+				ADDDFBD11D672167003C3B5B /* Other */,
 				ADD965211D5E55AD000B3602 /* Support Files */,
 			);
 			path = NotAnotherOneTask;
@@ -152,7 +155,6 @@
 		ADD9651F1D5E5556000B3602 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ADD965231D5E6999000B3602 /* EventCell.swift */,
 				ADE7472C1D5E3E5C00C1734B /* Event.swift */,
 			);
 			name = Models;
@@ -161,8 +163,9 @@
 		ADD965201D5E5566000B3602 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AD76F05F1D5D004C001A3449 /* MasterViewController.swift */,
-				AD76F0611D5D004C001A3449 /* DetailViewController.swift */,
+				AD76F05F1D5D004C001A3449 /* EventsViewController.swift */,
+				AD76F0611D5D004C001A3449 /* CurrentEventViewController.swift */,
+				ADD965231D5E6999000B3602 /* EventCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -170,8 +173,6 @@
 		ADD965211D5E55AD000B3602 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				ADC78D131D623FCE00055C83 /* NotAnotherOneTask-Bridging-Header.h */,
-				AD76F05D1D5D004C001A3449 /* AppDelegate.swift */,
 				ADF9DA0F1D61F631000879C3 /* music.png */,
 				AD76F0661D5D004C001A3449 /* Assets.xcassets */,
 				AD76F06B1D5D004C001A3449 /* Info.plist */,
@@ -186,6 +187,16 @@
 				AD76F0681D5D004C001A3449 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		ADDDFBD11D672167003C3B5B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				ADDDFBD21D672183003C3B5B /* Parser.swift */,
+				AD76F05D1D5D004C001A3449 /* AppDelegate.swift */,
+				ADC78D131D623FCE00055C83 /* NotAnotherOneTask-Bridging-Header.h */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		AF51C4514385FA2DC7F5051F /* Pods */ = {
@@ -480,8 +491,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD76F0621D5D004C001A3449 /* DetailViewController.swift in Sources */,
-				AD76F0601D5D004C001A3449 /* MasterViewController.swift in Sources */,
+				AD76F0621D5D004C001A3449 /* CurrentEventViewController.swift in Sources */,
+				AD76F0601D5D004C001A3449 /* EventsViewController.swift in Sources */,
+				ADDDFBD31D672183003C3B5B /* Parser.swift in Sources */,
 				AD76F05E1D5D004C001A3449 /* AppDelegate.swift in Sources */,
 				ADD965241D5E6999000B3602 /* EventCell.swift in Sources */,
 				ADE7472D1D5E3E5C00C1734B /* Event.swift in Sources */,
