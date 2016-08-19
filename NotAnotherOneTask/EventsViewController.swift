@@ -74,7 +74,7 @@ class EventsViewController: UITableViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func parserCall() {
+    func networkManagerCall() {
         let parser = NetworkManager()
         parser.jsonParser(locationString, radius: radiusOfEvents, completionBlock: { (eventsJP) -> Void in
             self.eventsArray = eventsJP
@@ -150,17 +150,17 @@ extension EventsViewController {
         self.locationManager.stopUpdatingLocation()
         
         if self.flagForDoubleUpdating {
-            self.parserCall()
+            self.networkManagerCall()
             self.flagForDoubleUpdating = false
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("\(error.debugDescription)")
-        let alert = UIAlertController(title: "Error", message: error.debugDescription, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        self.activity.stopAnimating()
-    }
+//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+//        print("\(error.debugDescription)")
+//        let alert = UIAlertController(title: "Error", message: error.debugDescription, preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+//        self.presentViewController(alert, animated: true, completion: nil)
+//        self.activity.stopAnimating()
+//    }
 }
 

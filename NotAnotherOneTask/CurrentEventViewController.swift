@@ -58,7 +58,7 @@ class CurrentEventViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func configureView() {
-        parserCall()
+        networkManagerCall()
         
         let camera: GMSCameraPosition = GMSCameraPosition.cameraWithLatitude(CLLocationDegrees(event.latitude), longitude: CLLocationDegrees(event.longitude), zoom: 15)
         let  position = CLLocationCoordinate2DMake(CLLocationDegrees(event.latitude), CLLocationDegrees(event.longitude))
@@ -108,7 +108,7 @@ class CurrentEventViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func parserCall() {
+    func networkManagerCall() {
         let parser = NetworkManager()
         let str = event.name.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
         parser.jsonParser(str!, completionBlock: { (imageURL) -> Void in
