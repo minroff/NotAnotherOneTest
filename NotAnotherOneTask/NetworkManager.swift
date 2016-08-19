@@ -8,7 +8,7 @@
  
  import UIKit
  
- class Parser: NSObject {
+ class NetworkManager: NSObject {
     
     var eventsArray : [Event] = []
     var imageURL = String()

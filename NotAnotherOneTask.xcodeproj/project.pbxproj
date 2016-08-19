@@ -17,7 +17,7 @@
 		AD76F0751D5D004C001A3449 /* NotAnotherOneTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F0741D5D004C001A3449 /* NotAnotherOneTaskTests.swift */; };
 		AD76F0801D5D004C001A3449 /* NotAnotherOneTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76F07F1D5D004C001A3449 /* NotAnotherOneTaskUITests.swift */; };
 		ADD965241D5E6999000B3602 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD965231D5E6999000B3602 /* EventCell.swift */; };
-		ADDDFBD31D672183003C3B5B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDFBD21D672183003C3B5B /* Parser.swift */; };
+		ADDDFBD31D672183003C3B5B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDFBD21D672183003C3B5B /* NetworkManager.swift */; };
 		ADE7472D1D5E3E5C00C1734B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7472C1D5E3E5C00C1734B /* Event.swift */; };
 		ADF9DA101D61F631000879C3 /* music.png in Resources */ = {isa = PBXBuildFile; fileRef = ADF9DA0F1D61F631000879C3 /* music.png */; };
 		AF6E9639EAC62224D2BAB460 /* Pods_NotAnotherOneTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B730B8D481F73C9EBBD539 /* Pods_NotAnotherOneTask.framework */; };
@@ -64,7 +64,7 @@
 		AD76F0811D5D004C001A3449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADC78D131D623FCE00055C83 /* NotAnotherOneTask-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotAnotherOneTask-Bridging-Header.h"; sourceTree = "<group>"; };
 		ADD965231D5E6999000B3602 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
-		ADDDFBD21D672183003C3B5B /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		ADDDFBD21D672183003C3B5B /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ADE7472C1D5E3E5C00C1734B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		ADF9DA0F1D61F631000879C3 /* music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music.png; sourceTree = "<group>"; };
 		D3A7732475B7B2473F26C645 /* Pods_NotAnotherOneTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotAnotherOneTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +192,7 @@
 		ADDDFBD11D672167003C3B5B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				ADDDFBD21D672183003C3B5B /* Parser.swift */,
+				ADDDFBD21D672183003C3B5B /* NetworkManager.swift */,
 				AD76F05D1D5D004C001A3449 /* AppDelegate.swift */,
 				ADC78D131D623FCE00055C83 /* NotAnotherOneTask-Bridging-Header.h */,
 			);
@@ -493,7 +493,7 @@
 			files = (
 				AD76F0621D5D004C001A3449 /* CurrentEventViewController.swift in Sources */,
 				AD76F0601D5D004C001A3449 /* EventsViewController.swift in Sources */,
-				ADDDFBD31D672183003C3B5B /* Parser.swift in Sources */,
+				ADDDFBD31D672183003C3B5B /* NetworkManager.swift in Sources */,
 				AD76F05E1D5D004C001A3449 /* AppDelegate.swift in Sources */,
 				ADD965241D5E6999000B3602 /* EventCell.swift in Sources */,
 				ADE7472D1D5E3E5C00C1734B /* Event.swift in Sources */,

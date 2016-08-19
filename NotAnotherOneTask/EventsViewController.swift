@@ -75,7 +75,7 @@ class EventsViewController: UITableViewController, CLLocationManagerDelegate {
     }
     
     func parserCall() {
-        let parser = Parser()
+        let parser = NetworkManager()
         parser.jsonParser(locationString, radius: radiusOfEvents, completionBlock: { (eventsJP) -> Void in
             self.eventsArray = eventsJP
             self.activity.stopAnimating()

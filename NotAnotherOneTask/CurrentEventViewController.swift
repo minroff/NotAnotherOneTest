@@ -109,7 +109,7 @@ class CurrentEventViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func parserCall() {
-        let parser = Parser()
+        let parser = NetworkManager()
         let str = event.name.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
         parser.jsonParser(str!, completionBlock: { (imageURL) -> Void in
             self.imageURL = imageURL
